@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pharmacy Management System</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        nav {
+            background-color: #34495E;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 2em;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #34495E;
+            color: white;
+        }
+        button {
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1ABC9C;
+        }
+        .form-container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            margin-bottom: 1em;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: .5em;
+        }
+        .form-container input {
+            width: 100%;
+            padding: .5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pharmacy Management System</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Add Medicine</a>
+        <a href="#">View Medicines</a>
+        <a href="#">Sales Report</a>
+        <a href="#" onclick="showLogin()">Login</a>
+        <a href="#" onclick="showSignup()">Sign Up</a>
+    </nav>
+    <main>
+        <h2>Welcome to the Pharmacy Management System</h2>
+        <p>Manage your pharmacy efficiently and effectively with our system.</p>
+
+        <!-- Example table for viewing medicines -->
+        <table>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>DOLO650</td>
+                <td>Pain Relief</td>
+                <td>100</td>
+                <td>$5</td>
+                <td><button>Edit</button> <button>Delete</button></td>
+            </tr>
+            <!-- More rows can be added here -->
+        </table>
+    </main>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="form-container" style="display:none;">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" id="loginUsername" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="loginPassword" name="password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signupForm" class="form-container" style="display:none;">
+        <h2>Sign Up</h2>
+        <form>
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" name="username" required>
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" name="password" required>
+            <button type="button" onclick="signup()">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+        }
+
+        function showSignup() {
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            alert('Logged in as ' + username);
+            // Add backend authentication here
+        }
+
+        function signup() {
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+            alert('Signed up as ' + username);
+            // Add backend sign-up logic here
+        }
+    </script>
+</body>
+</html>
